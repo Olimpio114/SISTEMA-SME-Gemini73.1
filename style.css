@@ -7,7 +7,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-  background-color: #bde8f0; /* Cor de fundo da sidebar */
+  background-color: #2c32b8; /* Cor de fundo da sidebar */
   color: white;
   padding: 1.5rem; /* p-6 */
   width: 15rem; /* w-60 */
@@ -29,15 +29,15 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-  space-y: 0.5rem; /* space-y-2 */
+  /* space-y-2 já aplicado via Tailwind, mas pode ser explicitado */
 }
 
 .sidebar nav ul li a {
-  display: block; /* block */
-  padding: 0.5rem 1rem; /* py-2 px-4 */
+  display: block;
+  padding: 0.5rem 1rem; /* px-4 py-2 */
   border-radius: 0.25rem; /* rounded */
-  color: white;
   text-decoration: none;
+  color: white;
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -47,277 +47,34 @@ body {
 
 .sidebar nav ul li a.active {
   background-color: #8a2be2; /* Cor para o link ativo */
-  font-weight: 600; /* Opcional: para destacar mais */
 }
 
 /* Main Content */
 main {
   flex: 1; /* flex-1 */
   padding: 1.5rem; /* p-6 */
-  overflow-y: auto; /* overflow-y:auto */
+  overflow-y: auto;
 }
 
-/* Seções */
+/* Seções de Conteúdo */
 section {
-  background-color: white;
+  background-color: white; /* bg-white */
   padding: 1.5rem; /* p-6 */
   border-radius: 0.5rem; /* rounded-lg */
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* shadow-lg */
-  margin-bottom: 2rem; /* mb-8 */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow */
 }
 
-/* Títulos de Seção */
-section h2 {
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: 700; /* font-bold */
-  color: #1f2937; /* gray-800 */
-  margin-bottom: 1.5rem; /* mb-6 */
+#initial-message {
   text-align: center;
+  color: #6b7280; /* text-gray-600 */
 }
 
-/* Tabelas */
-/* O div.overflow-x-auto agora gerencia a borda externa e o arredondamento */
-.overflow-x-auto {
-  border: 1px solid #d1d5db; /* border-gray-300 */
-  border-radius: 0.5rem; /* rounded-lg */
-  overflow: hidden; /* Garante que as bordas arredondadas funcionem com o conteúdo */
-}
-
-table.min-w-full {
-  width: 100%;
-  border-collapse: collapse; /* Critical for collapsing cell borders */
-  /* Removido borda, border-radius e overflow:hidden daqui, agora no pai .overflow-x-auto */
-}
-
-table.min-w-full th,
-table.min-w-full td {
-  border: 1px solid #e5e7eb; /* Cor da borda da célula */
-  padding: 0.75rem; /* Espaçamento interno da célula */
-  vertical-align: top; /* Alinha o conteúdo ao topo para textareas */
-  text-align: left; /* Alinha o texto à esquerda por padrão */
-}
-
-table.min-w-full thead th {
-  background-color: #2c32b8; /* Cor de fundo para os cabeçalhos */
-  color: white;
-  font-size: 0.75rem; /* text-xs */
-  font-weight: 600; /* font-semibold */
-  text-transform: uppercase;
-  padding: 0.5rem; /* p-2 */
-  white-space: nowrap; /* Evita quebra de linha nos cabeçalhos */
-}
-
-/* NOVO: Efeito de hover para os títulos da tabela */
-table.min-w-full thead th:hover {
-  background-color: #8a2be2; /* Cor de hover do menu lateral */
-  cursor: pointer; /* Indica que é interativo */
-}
-
-
-/* Estilo para as células de dados editáveis */
-table.min-w-full tbody td {
-  background-color: #ffffff; /* Fundo branco para as células de dados */
-}
-
-/* Inputs e Textareas dentro da tabela */
-table.min-w-full input[type="text"],
-table.min-w-full textarea {
-  margin-top: 0; /* Remove margin-top padrão se houver */
-  display: block;
-  width: 100%;
-  border-radius: 0.375rem; /* rounded-md */
-  border: 1px solid #d1d5db; /* border-gray-300 */
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-  padding: 0.5rem 0.75rem; /* Consistente para ambos */
-  font-size: 0.875rem; /* text-sm */
-  line-height: 1.25rem; /* Altura da linha para consistência */
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  box-sizing: border-box; /* Inclui padding e borda na largura/altura total */
-  
-  .auto-height-textarea {
-  resize: none;
-  min-height: 38px;
-  overflow-y: hidden;
-}
-}
-/* Estilo para as células de dados */
-table.min-w-full input:hover,
-table.min-w-full textarea:hover {
-  background-color: #add3ea; /* Tom de cinza claro */
-  border-color: #9ca3af; /* Tom de cinza um pouco mais escuro para a borda */
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-}
-
-
-
-
-/* Ajusta a largura mínima da 1ª coluna (neste exemplo, a coluna 'Descrição') */
-table.min-w-full th:nth-child(1),
-table.min-w-full td:nth-child(1) {
-    min-width: 70px; /* Defina o tamanho mínimo desejado para esta coluna */
-}
-/* Ajusta a largura mínima da 6ª coluna (neste exemplo, a coluna 'Descrição') */
-table.min-w-full th:nth-child(6),
-table.min-w-full td:nth-child(6) {
-    min-width: 600px; /* Defina o tamanho mínimo desejado para esta coluna */
-}
-
-/* Ajusta a largura mínima da 8ª coluna (neste exemplo, a coluna 'Descrição') */
-table.min-w-full th:nth-child(8),
-table.min-w-full td:nth-child(8) {
-    min-width: 400px; /* Defina o tamanho mínimo desejado para esta coluna */
-}
-/* Ajusta a largura mínima da 9ª coluna (neste exemplo, a coluna 'Descrição') */
-table.min-w-full th:nth-child(9),
-table.min-w-full td:nth-child(9) {
-    min-width: 400px; /* Defina o tamanho mínimo desejado para esta coluna */
-}/* Ajusta a largura mínima da 10ª coluna (neste exemplo, a coluna 'Descrição') */
-table.min-w-full th:nth-child(10),
-table.min-w-full td:nth-child(10) {
-    min-width: 400px; /* Defina o tamanho mínimo desejado para esta coluna */
-}/* Ajusta a largura mínima da 12ª coluna (neste exemplo, a coluna 'Descrição') */
-table.min-w-full th:nth-child(11),
-table.min-w-full td:nth-child(11) {
-    min-width: 400px; /* Defina o tamanho mínimo desejado para esta coluna */
-}/* Ajusta a largura mínima da 12ª coluna (neste exemplo, a coluna 'Descrição') */
-table.min-w-full th:nth-child(12),
-table.min-w-full td:nth-child(12) {
-    min-width: 400px; /* Defina o tamanho mínimo desejado para esta coluna */
-}
-/* Você pode ajustar o min-width padrão para as outras colunas se desejar */
-table.min-w-full th,
-table.min-w-full td {
-  min-width: 150px; /* Por exemplo, um padrão menor para as outras colunas */
-}
-
-
-
-
-
-
-
-table.min-w-full input[type="text"]:focus,
-table.min-w-full textarea:focus {
-  border-color: #6366f1; /* focus:border-indigo-300 */
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25); /* focus:ring focus:ring-indigo-200 focus:ring-opacity-50 */
-}
-
-/* Textarea de altura automática */
-.auto-height-textarea {
-  resize: none; /* Impede redimensionamento manual pelo usuário */
-  /* Altura mínima calculada para ser igual à de um input de texto de linha única */
-  /* 0.5rem (padding-top) + 0.5rem (padding-bottom) + 1.25rem (line-height) + 1px (border-top) + 1px (border-bottom) = 38px */
-  min-height: 38px;
-  overflow-y: hidden; /* Oculta a barra de rolagem vertical */
-}
-
-
-/* Botões */
-button {
-  padding: 0.5rem 1rem; /* px-4 py-2 */
-  border-radius: 0.25rem; /* rounded */
-  font-size: 0.875rem; /* text-sm */
+#initial-message p {
+  font-size: 1.125rem; /* text-lg */
   font-weight: 500; /* font-medium */
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* Botão Adicionar Nova Linha */
-#add-new-row-btn {
-  background-color: #2c32b8;
-  color: white;
-}
-
-#add-new-row-btn:hover {
-  background-color: #8a2be2;
-}
-
-/* Botão Salvar Alterações */
-#save-all-changes-btn {
-    background-color: #2c32b8; /* bg-indigo-600 */
-    color: white;
-}
-
-#save-all-changes-btn:hover {
-    background-color: #8a2be2; /* hover:bg-indigo-700 */
-}
-
-/* Botão Importar CSV */
-#import-csv-btn {
-  background-color: #2c32b8; /* bg-blue-600 */
-  color: white;
-  border: none;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-#import-csv-btn:hover {
-  background-color: #8a2be2; /* hover:bg-blue-700 */
-}
-
-/* Botão Exportar CSV */
-#export-system-csv-btn {
-  background-color: #2c32b8; /* bg-green-600 */
-  color: white;
-  border: none; /* remove border */
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-}
-
-#export-system-csv-btn:hover {
-  background-color: #8a2be2; /* hover:bg-green-700 */
-}
-
-#export-system-csv-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.5); /* focus:ring-green-500 */
-}
-
-/* Botão Apagar Toda a Tabela */
-#clear-table-btn {
-  background-color: #ef4444; /* bg-red-600 */
-  color: white;
-  border: none;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-#clear-table-btn:hover {
-  background-color: #dc2626; /* hover:bg-red-700 */
-}
-
-/* Botão Excluir Linha (dentro da tabela) */
-.delete-row-btn {
-  background-color: #8a2be2; /* bg-red-400 */
-  color: white;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.75rem;
-  border-radius: 0.25rem;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.delete-row-btn:hover {
-  background-color: #8a2be2; /* hover:bg-red-500 */
-}
-
-
-/* Mensagens gerais */
-#generalMessage {
-  padding: 0.75rem; /* p-3 */
-  margin-bottom: 1rem; /* mb-4 */
-  border-radius: 0.375rem; /* rounded-md */
-  text-align: center;
-}
-
-#generalMessage.bg-green-100 { background-color: #d1fae5; } /* Tailwind green-100 */
-#generalMessage.text-green-700 { color: #047857; } /* Tailwind green-700 */
-#generalMessage.bg-red-100 { background-color: #fee2e2; } /* Tailwind red-100 */
-#generalMessage.text-red-700 { color: #b91c1c; } /* Tailwind red-700 */
-#generalMessage.bg-blue-100 { background-color: #dbeafe; } /* Tailwind blue-100 */
-#generalMessage.text-blue-700 { color: #1d4ed8; } /* Tailwind blue-700 */
-#generalMessage.hidden { display: none; }
-
-/* Título do Sistema */
+/* Títulos de Seção de Sistema */
 #system-title-container {
   background-color: #2c32b8;
   color: white;
@@ -333,27 +90,175 @@ button {
   font-weight: 600; /* font-semibold */
 }
 
+/* Tabelas */
+.overflow-x-auto {
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  overflow: hidden;
+}
+
+table.min-w-full {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.min-w-full th,
+table.min-w-full td {
+  border: 1px solid #e5e7eb; /* Cor da borda da célula */
+  padding: 0.75rem;
+  vertical-align: top;
+  text-align: left;
+}
+
+table.min-w-full thead th {
+  background-color: #2c32b8; /* Cor do menu lateral */
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  white-space: nowrap;
+}
+
+table.min-w-full thead th:hover {
+  background-color: #8a2be2; /* Cor de hover do menu lateral */
+  cursor: pointer;
+}
+
+table.min-w-full tbody td {
+  background-color: #ffffff; /* Fundo branco padrão para as células de dados */
+  transition: background-color 0.2s ease-in-out; /* Transição para o hover */
+}
+
+/* Inputs e Textareas dentro da tabela */
+table.min-w-full input[type="text"],
+table.min-w-full input[type="date"],
+table.min-w-full textarea {
+  margin-top: 0;
+  display: block;
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+
+table.min-w-full input:hover,
+table.min-w-full textarea:hover {
+  background-color: #add3ea;
+  border-color: #9ca3af;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+table.min-w-full input[type="text"]:focus,
+table.min-w-full input[type="date"]:focus,
+table.min-w-full textarea:focus {
+  border-color: #6366f1;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+/* Textarea de altura automática */
+.auto-height-textarea {
+  resize: none;
+  min-height: 38px;
+  overflow-y: hidden;
+}
+
+/* Ajusta a largura mínima das colunas - Restaurado para o original */
+table.min-w-full th:nth-child(1), table.min-w-full td:nth-child(1) { min-width: 70px; } /* Ordem */
+table.min-w-full th:nth-child(6), table.min-w-full td:nth-child(6) { min-width: 600px; } /* Descrição */
+table.min-w-full th:nth-child(8), table.min-w-full td:nth-child(8) { min-width: 400px; } /* Links */
+table.min-w-full th:nth-child(9), table.min-w-full td:nth-child(9) { min-width: 400px; } /* Acompanhamento Técnico */
+table.min-w-full th:nth-child(10), table.min-w-full td:nth-child(10) { min-width: 400px; } /* Fiscal */
+table.min-w-full th:nth-child(11), table.min-w-full td:nth-child(11) { min-width: 400px; } /* PO */
+table.min-w-full th:nth-child(12), table.min-w-full td:nth-child(12) { min-width: 400px; } /* Key User */
+
+/* Padrão menor para as outras colunas */
+table.min-w-full th, table.min-w-full td { min-width: 150px; }
+
+
+/* Botões - Classes unificadas para todos os botões */
+.button-primary {
+  background-color: #2c32b8; /* Cor do menu lateral */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: none; /* Garante que não há borda padrão */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Sombra leve */
+}
+
+.button-primary:hover {
+  background-color: #8a2be2; /* Cor hover do menu lateral */
+}
+
+.button-delete {
+  background-color: #2c32b8; /* Cor do menu lateral */
+  color: white;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button-delete:hover {
+  background-color: #8a2be2; /* Cor hover do menu lateral */
+}
+
+
+/* Classes para colorir as linhas da tabela de detalhes do sistema (cor fixa) */
+.situacao-transversal-row td {
+  background-color: #e0f2fe !important; /* Azul claro */
+}
+
+.situacao-descontinuado-row td {
+  background-color: #ffe0e0 !important; /* Vermelho claro */
+}
+
+.situacao-aguardando-row td {
+  background-color: #c99ac8 !important; /* Amarelo claro */
+}
+
+.situacao-descoberta-row td {
+  background-color: #be7abb !important; /* Laranja claro */
+}
+
+.situacao-suspenso-row td {
+  background-color: #f0f0f0 !important; /* Cinza claro */
+}
+
+
 /* Responsividade básica para telas menores */
 @media (max-width: 768px) {
   .flex {
-    flex-direction: column; /* Empilha sidebar e main content em telas pequenas */
+    flex-direction: column;
   }
 
   .sidebar {
-    width: 100%; /* Sidebar ocupa toda a largura */
-    min-height: auto; /* Altura automática */
+    width: 100%;
+    min-height: auto;
     padding: 1rem;
   }
 
   .sidebar nav ul {
-    display: flex; /* Links da sidebar em linha */
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem; /* Espaçamento entre os links */
+    gap: 0.5rem;
   }
 
   .sidebar nav ul li a {
-    flex-grow: 1; /* Links crescem para preencher o espaço */
+    flex-grow: 1;
     text-align: center;
   }
 
@@ -361,15 +266,13 @@ button {
     padding: 1rem;
   }
 
-  /* A tabela terá overflow-x-auto, então não precisamos de display: block para th/td */
-  /* Apenas garantir que os inputs preencham o espaço */
   .flex-wrap {
-    flex-direction: column; /* Empilha os botões em telas pequenas */
-    align-items: stretch; /* Estica os botões para preencher a largura */
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .flex-wrap button, .flex-wrap input[type="file"] {
-    width: 100%; /* Botões ocupam a largura total */
-    margin-bottom: 0.5rem; /* Espaçamento entre os botões */
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 }
